@@ -10,11 +10,18 @@ import logo from '../../logo.svg';
 export default class App extends Component {
   state= {
     randomChar: true,
+    selectedChar: 130,
   }
 
   onDeleteRandomChar () {
     this.setState({
       randomChar: !this.state.randomChar,
+    })
+  }
+
+  onCharSelected = (id) => {
+    this.setState({
+      selectedChar: id,
     })
   }
 
@@ -38,10 +45,10 @@ export default class App extends Component {
           </Row>
           <Row>
             <Col md='6'>
-              <ItemList />
+              <ItemList onCharSelected={this.onCharSelected}/>
             </Col>
             <Col md='6'>
-              <CharDetails />
+              <CharDetails charId={this.state.selectedChar}/>
             </Col>
           </Row>
         </Container>
