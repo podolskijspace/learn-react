@@ -4,6 +4,7 @@ import GotService from '../../services/gotService';
 import Spinner from '../spinner';
 
 export default class ItemList extends Component {
+
   gotService = new GotService();
 
   state = {
@@ -26,7 +27,7 @@ export default class ItemList extends Component {
         <li 
         className="list-group-item"
         key={i}
-        onClick={() => this.props.onCharacterSelected(i)}
+        onClick={() => this.props.onCharSelected(i)}
         >
           {item.name}
         </li>

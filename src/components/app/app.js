@@ -13,13 +13,18 @@ export default class App extends Component {
     selectedChar: 130,
   }
 
+  componentDidUpdate(prevProps) {
+    console.log(prevProps, this.props);
+  }
+
   onDeleteRandomChar () {
     this.setState({
       randomChar: !this.state.randomChar,
     })
   }
 
-  onCharSelected = (id) => {
+  onCharSelected(id) {
+    console.log(id);
     this.setState({
       selectedChar: id,
     })
@@ -45,7 +50,7 @@ export default class App extends Component {
           </Row>
           <Row>
             <Col md='6'>
-              <ItemList onCharSelected={this.onCharSelected}/>
+              <ItemList onCharSelected={this.onCharSelected.bind(this)}/>
             </Col>
             <Col md='6'>
               <CharDetails charId={this.state.selectedChar}/>
