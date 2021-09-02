@@ -5,12 +5,14 @@ import ItemList from '../itemList/';
 import CharDetails from '../charDetails/';
 import Header from '../header/'
 import DeleteRandomChar from '../deleteRandomChar/';
+import ErrorMessage from '../errorMessage';
 import logo from '../../logo.svg';
 
 export default class App extends Component {
   state= {
     randomChar: true,
     selectedChar: 130,
+    error: false,
   }
 
   componentDidUpdate(prevProps) {
@@ -20,6 +22,12 @@ export default class App extends Component {
   onDeleteRandomChar () {
     this.setState({
       randomChar: !this.state.randomChar,
+    })
+  }
+
+  componentDidCatch () {
+    this.setState({
+      error: true,
     })
   }
 
@@ -33,6 +41,10 @@ export default class App extends Component {
   render () {
     const {randomChar} = this.state,
           Content = randomChar ? <RandomChar/> : null;
+
+    if (this.state.error) {
+      return <ErrorMessage/>
+    }
 
     return (
       <> 

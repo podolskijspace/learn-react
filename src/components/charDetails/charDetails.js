@@ -15,7 +15,6 @@ export default class CharDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps.charId, this.props.charId);
     if (this.props.charId !== prevProps.charId) {
       this.updateChar();
     }
@@ -31,6 +30,7 @@ export default class CharDetails extends Component {
       .then((char) => {
         this.setState({char})
       })
+    
   }
 
   render() {

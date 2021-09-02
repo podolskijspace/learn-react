@@ -26,6 +26,7 @@ export default class RandomChar extends Component {
       char,
       loading: false
     });
+
   }
 
   onError = (err) => {
