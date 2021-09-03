@@ -31,6 +31,7 @@ export default class CharDetails extends Component {
         this.setState({char})
       })
     
+    // this.foo.bar = 0; //Симулируем ошибку
   }
 
   render() {

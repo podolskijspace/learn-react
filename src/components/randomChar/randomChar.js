@@ -50,13 +50,9 @@ export default class RandomChar extends Component {
       return error ? <ErrorMessage/> :loading ? <Spinner/> : <View char={char}/>;
     }
 
-    if (loading) {
-      return <Spinner/>
-    }
-
     return (
       <div className="random-block rounded">
-        <Content loading={loading} />
+        <Content/>
       </div>
     );
   }
