@@ -26,7 +26,7 @@ export default class ItemList extends Component {
         <li 
         className="list-group-item"
         key={i}
-        onClick={() => this.props.onCharSelected(41 + i)}
+        onClick={() => this.props.onItemSelected(1 + i)}
         >
           {item.name}
         </li>
@@ -35,17 +35,25 @@ export default class ItemList extends Component {
   }
 
   render() {
-    const {itemList} = this.state;
-    
-    if (!itemList) {
-      return <Spinner/>
+    const {itemList} = this.state,
+          items = itemList ? this.renderItems(itemList) : null;
+
+    const Content = () => {
+      if (!itemList) {
+        return <Spinner/>;
+      }
+      else {
+        return (
+          <ul className="item-list list-group">
+            {items}
+          </ul>
+        );
+      }
     }
-    const items = this.renderItems(itemList);
+    
 
     return (
-      <ul className="item-list list-group">
-        {items}
-      </ul>
+      <Content/>
     );
   }
 }

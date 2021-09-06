@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const ErrorMessage = () => {
-  return (
-    <span> Something goes wrong</span>
-  )
+export default class ErrorMessage extends Component {
+  
+  render () {
+    return (
+      <span className="error"> {this.props.children || 'Something goes wrong'}</span>
+    )
+  }
 }
-
-export default ErrorMessage;
