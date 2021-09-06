@@ -25,7 +25,6 @@ export default class CharDetails extends Component {
     if (!itemId) {
       return 
     }
-    console.log(this.props.data);
     this.gotService.getData({name:this.props.data, id:itemId})
       .then((item) => {
         this.setState({item})
@@ -55,56 +54,44 @@ export default class CharDetails extends Component {
 }
 
 const DataList = ({data, info}) => {
-    const {gender, born, died, culture, numberOfPages, publisher, overlord, region} = info;
+    const {gender, born, died, culture, numberOfPages, publisher, released, overlord, words, region} = info;
     switch (data) {
     case "houses":
       return (
         <ul className="list-group list-group-flush">
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">Overlord</span>
-            <span>{overlord}</span>
-          </li>
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">Region</span>
-            <span>{region}</span>
-          </li>
+          <Item text={region} info={'Region'}/>
+          <Item text={words} info={'Words'}/>
+          <Item text={overlord} info={'Overlord'}/>
         </ul>
       )
     case "books":
       return (
         <ul className="list-group list-group-flush">
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">NumberOfPages</span>
-            <span>{numberOfPages}</span>
-          </li>
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">Publisher</span>
-            <span>{publisher}</span>
-          </li>
+          <Item text={numberOfPages} info={'Number Of Pages'}/>
+          <Item text={publisher} info={'Publisher'}/>
+          <Item text={released} info={'Released'}/>
+          <Item text={culture} info={'Culture'}/>
         </ul>
       )
     case "characters":
       return (
         <ul className="list-group list-group-flush">
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">Gender</span>
-            <span>{gender}</span>
-          </li>
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">Born</span>
-            <span>{born}</span>
-          </li>
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">Died</span>
-            <span>{died}</span>
-          </li>
-          <li className="list-group-item d-flex justify-content-between">
-            <span className="term">Culture</span>
-            <span>{culture}</span>
-          </li>
+          <Item text={gender} info={'Gender'}/>
+          <Item text={born} info={'Born'}/>
+          <Item text={died} info={'Died'}/>
+          <Item text={culture} info={'Culture'}/>
         </ul>
       )
     default:
-      console.error("Something goesWrong");
+      console.error("Something goes wrong");
   }
+}
+
+const Item = ({text, info}) => {
+  return (
+    <li className="list-group-item d-flex justify-content-between">
+      <span className="term">{info}</span>
+      <span>{text}</span>
+    </li>
+  )
 }

@@ -57,9 +57,7 @@ export default class GotService {
       name: house.name || 'no data ;(',
       region: house.region || 'no data ;(',
       words: house.words || 'no data ;(',
-      titles: house.titles || 'no data ;(',
       overlord: house.overlord || 'no data ;(',
-      ancestralWeapons: house.ancestralWeapons || 'no data ;(',
     }
   }
 
@@ -68,7 +66,7 @@ export default class GotService {
       name: book.name || 'no data ;(',
       numberOfPages: book.numberOfPages || 'no data ;(',
       publisher: book.publisher || 'no data ;(',
-      released: book.released || 'no data ;(',
+      released: book.released.slice(0, 10) || 'no data ;(',
       culture: book.culture || 'no data ;(',
     }
   }
