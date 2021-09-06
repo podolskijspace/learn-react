@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import './charDetails.css';
+import './singlePage.css';
 import GotService from '../../services/gotService';
-import ErrorMessage from '../errorMessage';
+import ErrorMessage from '../../components/errorMessage';
 
-export default class CharDetails extends Component {
+export default class SinglePage extends Component {
   gotService = new GotService();
 
   state = {

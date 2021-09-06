@@ -4,8 +4,8 @@ import RandomChar from '../randomChar/';
 import Header from '../header/'
 import Button from '../button';
 import ErrorMessage from '../errorMessage';
-import BottomPage from '../bottomPage';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import BottomPage from '../../pages/bottomPage';
+import { BrowserRouter, Route} from 'react-router-dom';
 
 export default class App extends Component {
   state= {
@@ -50,11 +50,9 @@ export default class App extends Component {
               <Row>
                 <Button onClick={this.onToggleRandomChar.bind(this)}/>
               </Row>
-                <Switch>
-                  <Route path="/houses" component={() => <BottomPage data="houses"/>}/>
-                  <Route path="/books" component={() => <BottomPage data="books"/>} />
-                  <Route path="/characters" component={() => <BottomPage data="characters"/>} />
-                </Switch>
+                <Route path="/houses"  component={() => <BottomPage data="houses"/>}/>
+                <Route path="/books"  component={() => <BottomPage data="books"/>} />
+                <Route path="/characters"  component={() => <BottomPage data="characters"/>} />
             </Container>
           </>
         )
